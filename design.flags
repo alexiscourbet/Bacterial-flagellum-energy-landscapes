@@ -1,0 +1,9 @@
+-out::file::pdb_comments
+-nstruct 10
+-renumber_pdb 1
+-out:prefix FD_
+-beta
+#multi_cool_annealer 10
+-run:preserve_header
+-corrections::beta_nov16 1
+-per_chain_renumbering 1
