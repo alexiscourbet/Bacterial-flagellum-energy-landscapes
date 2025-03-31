@@ -106,16 +106,23 @@
 </FILTERS>
   <MOVERS>
     <PackRotamersMover name="repack" scorefxn="hard" task_operations="repack_only,current,ex1_ex2" />
-    <FastRelax name="relax" repeats="1" scorefxn="hard" relaxscript="InterfaceRelax2019" ramp_down_constraints="false" />  
-
+    <FastRelax name="relax" repeats="3" scorefxn="hard" relaxscript="InterfaceRelax2019" ramp_down_constraints="false">
+      <MoveMap name="all_jump_move_map">
+        <Jump number="1" setting="true" />
+        <Span begin="1" end="999999" bb="true" chi="true" />
+      </MoveMap>
+    </FastRelax>
   </MOVERS>
 
 <PROTOCOLS>
-  Add mover="relax"/>
+  <!-- <Add mover="relax"/> -->
   <Add mover="repack"/>
-  Add filter="sym_uhb"/>
-  Add filter="uhb"/>
-  Add filter="uhb2"/>
-
+  <Add mover="repack"/>
+  <Add mover="repack"/>
+  <Add mover="repack"/>
+  <Add mover="repack"/>
+  <!-- <Add filter="sym_uhb"/> -->
+  <!-- <Add filter="uhb"/> -->
+  <!-- <Add filter="uhb2"/> -->
 </PROTOCOLS>
 </ROSETTASCRIPTS>
